@@ -1,0 +1,14 @@
+{
+  "name": "shipyard-live",
+  "version": "1.0.0",
+  "description": "Shipyard — autonomous creator outreach engine, live ops dashboard (Shadow OS)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "UNLICENSED",
+  "private": true
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="theme-color" content="#06070b" />
+<meta name="description" content="Shipyard — autonomous creator outreach engine by Shadow OS" />
+<title>SHIPYARD — Autonomous Creator Engine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="aurora"></div>
+<div class="grid-overlay"></div>
+
+<!-- TOP BAR -->
+<header class="topbar">
+  <div class="brand">
+    <div class="logo">
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16 2L29 9V23L16 30L3 23V9L16 2Z" stroke="url(#g1)" stroke-width="1.6"/>
+        <path d="M16 9L23 13V21L16 25L9 21V13L16 9Z" fill="url(#g1)" fill-opacity="0.18" stroke="url(#g1)" stroke-width="1.2"/>
+        <circle cx="16" cy="17" r="2.4" fill="url(#g1)"/>
+        <defs><linearGradient id="g1" x1="3" y1="2" x2="29" y2="30"><stop stop-color="#5eead4"/><stop offset="1" stop-color="#818cf8"/></linearGradient></defs>
+      </svg>
+    </div>
+    <div class="brand-text">
+      <div class="brand-name">SHIPYARD</div>
+      <div class="brand-sub">SHADOW&nbsp;OS</div>
+    </div>
+  </div>
+  <div class="topbar-right">
+    <div class="live-pill">
+      <span class="live-dot"></span>
+      <span>AUTONOMOUS</span>
+    </div>
+    <div class="clock" id="clock">--:--:--</div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>The engine is running.</h1>
+    <p class="hero-sub">Five agents are finding creators, scoring fit, writing pitches, and booking calls — around the clock, with zero manual work. Niche: <strong>Productivity&nbsp;/&nbsp;Notion</strong>.</p>
+  </section>
+
+  <!-- STAT CARDS -->
+  <section class="stats" id="stats">
+    <div class="stat-card" data-accent="cyan">
+      <div class="stat-label">Creators in Pipeline</div>
+      <div class="stat-value" id="s-pipeline">0</div>
+      <div class="stat-trend" id="s-pipeline-trend">live</div>
+    </div>
+    <div class="stat-card" data-accent="violet">
+      <div class="stat-label">Outreach Sent</div>
+      <div class="stat-value" id="s-sent">0</div>
+      <div class="stat-trend" id="s-sent-trend">today</div>
+    </div>
+    <div class="stat-card" data-accent="green">
+      <div class="stat-label">Reply Rate</div>
+      <div class="stat-value" id="s-reply">0<span class="unit">%</span></div>
+      <div class="stat-trend" id="s-reply-trend">7-day avg</div>
+    </div>
+    <div class="stat-card" data-accent="amber">
+      <div class="stat-label">Calls Booked</div>
+      <div class="stat-value" id="s-booked">0</div>
+      <div class="stat-trend" id="s-booked-trend">this week</div>
+    </div>
+    <div class="stat-card" data-accent="pink">
+      <div class="stat-label">Pipeline Value</div>
+      <div class="stat-value" id="s-value">$0</div>
+      <div class="stat-trend" id="s-value-trend">est. closed</div>
+    </div>
+  </section>
+
+  <div class="columns">
+
+    <!-- LEFT: AGENTS + FEED -->
+    <div class="col-left">
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Agents</h2>
+          <span class="panel-tag">5 active</span>
+        </div>
+        <div class="agents" id="agents"></div>
+      </section>
+
+      <section class="panel feed-panel">
+        <div class="panel-head">
+          <h2>Live Activity</h2>
+          <span class="panel-tag pulse-tag"><span class="live-dot small"></span>streaming</span>
+        </div>
+        <div class="feed" id="feed"></div>
+      </section>
+    </div>
+
+    <!-- RIGHT: PIPELINE -->
+    <div class="col-right">
+      <section class="panel pipeline-panel">
+        <div class="panel-head">
+          <h2>Pipeline</h2>
+          <span class="panel-tag" id="pipeline-count">0 creators</span>
+        </div>
+        <div class="board" id="board"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Outreach — last 14 days</h2>
+          <span class="panel-tag" id="chart-total">0 sent</span>
+        </div>
+        <div class="chart" id="chart"></div>
+      </section>
+    </div>
+  </div>
+
+  <footer class="foot">
+    <span>SHIPYARD · Shadow OS</span>
+    <span class="foot-dot">·</span>
+    <span>Autonomous creator product agency</span>
+    <span class="foot-dot">·</span>
+    <span id="foot-uptime">uptime 0s</span>
+  </footer>
+</main>
+
+<!-- CREATOR DETAIL DRAWER -->
+<div class="drawer-scrim" id="scrim"></div>
+<aside class="drawer" id="drawer">
+  <div class="drawer-head">
+    <div class="drawer-title" id="d-title">@creator</div>
+    <button class="drawer-close" id="d-close">&times;</button>
+  </div>
+  <div class="drawer-body" id="d-body"></div>
+</aside>
+
+<script src="app.js"></script>
+</body>
+</html>
