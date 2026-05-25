@@ -50,7 +50,6 @@
     const el = document.getElementById("num-" + key);
     if (!el) return;
     el.textContent = fmt(n[key]);
-    el.classList.remove("flash"); void el.offsetWidth; el.classList.add("flash");
   }
   FUNNEL.forEach(s => { document.getElementById("num-" + s.key).textContent = fmt(n[s.key]); });
 
@@ -95,13 +94,12 @@
   // ---- UPTIME ----
   const upEl = document.getElementById("uptime");
   function uptime() {
-    const s = Math.floor((Date.now() - start) / 1000);
-    const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), sec = s % 60;
-    upEl.textContent = "running " + (h ? h + "h " : "") + (m ? m + "m " : "") + sec + "s";
+    const mins = Math.floor((Date.now() - start) / 60000);
+    const h = Math.floor(mins / 60), m = mins % 60;
+    upEl.textContent = mins < 1 ? "running" : "running " + (h ? h + "h " : "") + m + "m";
   }
 
-  tick();
   uptime();
-  setInterval(tick, 3000);
-  setInterval(uptime, 1000);
+  setInterval(tick, 10000);
+  setInterval(uptime, 30000);
 })();
